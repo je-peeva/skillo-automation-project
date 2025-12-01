@@ -14,4 +14,12 @@ export default defineConfig([
       },
     },
   },
+  //Disabling `no-empty-pattern` for fixture file
+  {
+    files: ["tests/fixtures/**/*.js"],
+    rules: {
+      "no-empty": "off",
+      "no-empty-pattern": "off",
+    },
+  },
 ]);
