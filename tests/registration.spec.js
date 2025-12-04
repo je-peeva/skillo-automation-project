@@ -25,9 +25,9 @@ test("Register with required fields", async ({
   let requiredFields = testUser.generateRequiredFields();
   await registrationPage.setRequiredFields(requiredFields);
 
-  //..bugs/registration-bugs.md > Bug-001 (Incorrect button label of Sign up button)
+  //..bugs/registration-bugs.md > Bug-001 (Incorrect button label of "Sign up" button)
   await expect(registrationPage.signUpButton).toHaveText("Sign up");
-  //..bugs/registration-bugs.md > Bug-002 (Sign up button remains disabled after all required fields are populated)
+  //..bugs/registration-bugs.md > Bug-002 ("Sign up" button remains disabled after all required fields are filled in)
   await expect(registrationPage.signUpButton).toBeEnabled();
 
   await registrationPage.clickSignUpButton();
@@ -58,7 +58,7 @@ test("Register with required and optional fields", async ({
   allFields = testUser.generateAllFields();
   await registrationPage.setAllFields(allFields);
 
-  //..bugs/registration-bugs.md > Bug-001 (Incorrect button label of Sign up button)
+  //..bugs/registration-bugs.md > Bug-001 (Incorrect button label of "Sign up" button)
   //await expect(registrationPage.signUpButton).toHaveText("Sign up");
   await expect(registrationPage.signUpButton).toBeEnabled();
 
@@ -76,7 +76,7 @@ test("Register with required and optional fields", async ({
   expect(await profilePage.publicInfoValue.innerText()).toContain(
     allFields.username
   );
-  //..bugs/registration-bugs.md > Bug-003 (Public info value is not displayed in Profile page after registration)
+  //..bugs/registration-bugs.md > Bug-003 ("Public info" value entered during registration is not displayed on Profile page)
   expect(await profilePage.publicInfoValue.innerText()).toContain(
     allFields.publicInfoValue
   );
@@ -175,7 +175,7 @@ test("Min-length validation disappears on valid input", async ({
           );
         }
 
-        //..bugs/registration-bugs.md > Bug-004 (Incorrect validation message for minimum allowed characters of username input)
+        //..bugs/registration-bugs.md > Bug-004 (Min-lenght validation on username input persists after entering min allowed characters)
         await expect(messageElement).not.toBeVisible();
       });
     });

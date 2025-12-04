@@ -46,7 +46,7 @@ test.beforeEach(
 );
 
 test.afterEach(
-  "Delete post",
+  "Delete a post",
   async ({ header, profilePage, postModal, toast, toastMessages, state }) => {
     await header.goToProfile();
 
@@ -69,7 +69,7 @@ test.afterEach(
   }
 );
 
-test("Create public post", async ({
+test("Create a public post", async ({
   page,
   profilePage,
   postModal,
@@ -85,7 +85,7 @@ test("Create public post", async ({
     await expect(await newPostPage.getUploadInputValue()).toBe(state.imageName);
   });
 
-  await test.step("Fill post data and submit", async () => {
+  await test.step("Fill in post data and submit", async () => {
     state.caption = state.imageName + " je public caption";
 
     await newPostPage.setCaption(state.caption);
@@ -117,7 +117,7 @@ test("Create public post", async ({
   });
 });
 
-test("Create private post", async ({
+test("Create a private post", async ({
   page,
   profilePage,
   postModal,
@@ -138,7 +138,7 @@ test("Create private post", async ({
     expect(await newPostPage.getUploadInputValue()).toBe(state.imageName);
   });
 
-  await test.step("Fill post data and submit", async () => {
+  await test.step("Fill in post data and submit", async () => {
     state.caption = state.imageName + " je private caption";
     await newPostPage.setCaption(state.caption);
     await newPostPage.setPrivacyToggle("private");
@@ -149,7 +149,7 @@ test("Create private post", async ({
       toastMessages.successfulPost
     );
     await expect(page).toHaveURL(profilePage.url);
-    //..bugs/new-post-bugs.md > Bug-001 (Creating a private post redirects incorrectly to public tab on Profile page)
+    //..bugs/new-post-bugs.md > Bug-001 (Creating a private post redirects incorrectly to "Public" tab on Profile page)
     expect(await profilePage.isTabActive("private")).toBe(true);
     state.currentPrivatePostsCount = await profilePage.getPostListCount();
     await expect(state.currentPrivatePostsCount).toBe(
@@ -231,11 +231,11 @@ test("Validation for forbidden files", async ({
     toastMessages.invalidFormat
   );
   state.currentActiveToggle = await newPostPage.getActiveToggleLabel();
-  //..bugs/new-post-bugs.md > Bug-002 (Privacy toggle changes automaticaly when submitting a post with invalid file format)
+  //..bugs/new-post-bugs.md > Bug-002 (Privacy toggle changes automaticaly when submitting a post with an invalid file format)
   await expect(state.initialActiveToggle).toBe(state.currentActiveToggle);
   await expect(page).toHaveURL(newPostPage.url);
 
-  //..bugs/new-post-bugs.md > Bug-003 (Inconsistent input behaviour when submitting a post with invalid file format)
+  //..bugs/new-post-bugs.md > Bug-003 (Inconsistent input behaviour when submitting a post with an invalid file format)
   await expect(newPostPage.captionInput).toBeEmpty();
   await expect(newPostPage.uploadInput).toBeEmpty();
 });
