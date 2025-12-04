@@ -16,7 +16,7 @@ It includes both positive and negative scenarios to ensure correct handling of v
 **Steps**:
 
 1. Go to Login page.
-2. Populate all required fields within the form using valid data.
+2. Fill in all required fields within the form using valid data.
 3. Click on "Sign in" button.
 
 **Expected result**:
@@ -37,7 +37,7 @@ It includes both positive and negative scenarios to ensure correct handling of v
 **Steps**:
 
 1. Go to Login page.
-2. Populate all required fields within the form using invalid data for one of them.
+2. Fill in all required fields within the form using invalid data for one of them.
 3. Click on "Sign in" button.
 
 **Expected result**:

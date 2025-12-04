@@ -16,7 +16,7 @@ It covers positive scenarios for creating public and private posts, as well as n
 **Steps**:
 
 1. Upload a valid file format.
-2. Populate valid caption.
+2. Fill in a valid caption.
 3. Switch the toggle to "Public" option.
 4. Click on "Create post" button.
 
@@ -41,7 +41,7 @@ It covers positive scenarios for creating public and private posts, as well as n
 2. Click on "New post" button.
    - **Expected result**: New Post page is displayed.
 3. Upload a valid file format.
-4. Populate valid caption.
+4. Fill in a valid caption.
 5. Switch the toggle to "Private" option.
 6. Click on "Create post" button.
 
@@ -63,7 +63,7 @@ It covers positive scenarios for creating public and private posts, as well as n
 **Steps**:
 
 1. Do not upload image.
-2. Populate a valid caption.
+2. Fill in a valid caption.
 3. Click on "Create post" button.
 
 **Expected result**:
@@ -101,7 +101,7 @@ It covers positive scenarios for creating public and private posts, as well as n
 **Steps**:
 
 1. Upload an invalid file format.
-2. Populate valid caption.
+2. Fill in a valid caption.
 3. Click on "Create post" button.
 
 **Expected result**:
@@ -121,7 +121,7 @@ It covers positive scenarios for creating public and private posts, as well as n
 **Steps**:
 
 1. Upload a valid file format.
-2. Populate valid caption.
+2. Fill in a valid caption.
 3. Click on "Close" modal button.
 
 **Expected result**:

@@ -13,7 +13,7 @@ The Registration Test Suite verifies the user registration functionality of the 
 **Steps**:
 
 1. Go to Registration page.
-2. Populate all required fields within the form using valid data. _(currently only "Public info" is optional field)_
+2. Fill in all required fields within the form using valid data. _(currently only "Public info" is optional field)_
 3. Click on "Sign up" button.
 
 **Expected result**:
@@ -32,7 +32,7 @@ The Registration Test Suite verifies the user registration functionality of the 
 **Steps**:
 
 1. Go to Registration page.
-2. Populate all required and optional fields within the form using valid data.
+2. Fill in all required and optional fields within the form using valid data.
 3. Click on "Sign up" button.
 
 **Expected result**:
@@ -53,7 +53,7 @@ The Registration Test Suite verifies the user registration functionality of the 
 **Steps**:
 
 1. Go to Registration page.
-2. Populate registration form using credentials of already registered user.
+2. Fill in the registration form using credentials of already registered user.
 3. Click on "Sign up" button.
 
 **Expected result**:
@@ -72,11 +72,11 @@ The Registration Test Suite verifies the user registration functionality of the 
 **Steps**:
 
 1. Go to Registration page.
-2. Populate a value below the minimum allowed length within each field of the registration form.
+2. Fill in a value below the minimum allowed length within each field of the registration form.
 
 - **Expected result**: Validation message "Minimum {N} characters !" is displayed.
 
-3. Populate a value matching the allowed minimum of characters.
+3. Fill in a value matching the allowed minimum of characters.
 
 - **Expected result**: Validation message "Minimum {N} characters !" is hidden.
 
@@ -89,11 +89,11 @@ The Registration Test Suite verifies the user registration functionality of the 
 **Steps**:
 
 1. Go to Registration page.
-2. Populate a value above the maximum allowed length within each field of the registration form.
+2. Fill in a value above the maximum allowed length within each field of the registration form.
 
 - **Expected result**: Validation message "Maximum {Y} characters!" is displayed.
 
-3. Populate a value matching the allowed maximum of characters.
+3. Fill in a value matching the allowed maximum of characters.
 
 **Expected result**: Validation message "Maximum {Y} characters!" is hidden.
 
@@ -106,12 +106,12 @@ The Registration Test Suite verifies the user registration functionality of the 
 **Steps**:
 
 1. Go to Registration page.
-2. Populate "Password" field with valid value. _(Must contain digit and uppercase letter!)_
-3. Populate "Confirm Password" with mismatching value.
+2. Fill in "Password" field with valid value. _(Must contain digit and uppercase letter!)_
+3. Fill in "Confirm Password" with mismatching value.
 
 - **Expected result**: Validation message "Passwords do not match!" is displayed below "Confirm Password" input.
 
-4. Populate "Confirm Password" with matching value.
+4. Fill in "Confirm Password" with matching value.
 
 - **Expected result**: Validation message "Passwords do not match!" is hidden.
 
@@ -124,11 +124,11 @@ The Registration Test Suite verifies the user registration functionality of the 
 **Steps**:
 
 1. Go to Registration page.
-2. Populate "Password" field using at least 6 lowercase letters.
+2. Fill in "Password" field using at least 6 lowercase letters.
 
 - **Expected result**: Validation message "Must contain digit and uppercase letter!" is displayed below "Password" input.
 
-3. Populate "Password" field using avalid value. _(Must contain digit and uppercase letter!)_.
+3. Fill in "Password" field using avalid value. _(Must contain digit and uppercase letter!)_.
 
 - **Expected result**: Validation message "Must contain digit and uppercase letter!" is hidden.
 
@@ -141,14 +141,14 @@ The Registration Test Suite verifies the user registration functionality of the 
 **Steps**:
 
 1. Go to Registration page.
-2. Populate "Birth Date" field using date in a way:
+2. Fill in "Birth Date" field using date in a way:
 
 - younger than minimum age _(e.g. < 18 years / future date (not yet born))_
 - older than maximum age _(e.g. > 150 years)_
 
 - **Expected result**: Validation message for minimum and maximum allowed age is displayed below "Birth date" input.
 
-3. Populate "Birth Date" field using valid age.
+3. Fill in "Birth Date" field using valid age.
 
 - **Expected result**: Validation message for minimum and maximum allowed age is hidden.
 
