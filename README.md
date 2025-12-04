@@ -31,9 +31,9 @@ The automation suite is created to:
 
 Before running the automation tests, make sure you have installed:
 
-- Node.js 18.18+ (required for ESLint)
+- Node.js 18.18+ (https://nodejs.org/)
 - npm 9+
-- VS Code (recommended)
+- VS Code
 - ESLint and Prettier extensions
 
 ---
@@ -41,6 +41,8 @@ Before running the automation tests, make sure you have installed:
 ## 🚀 Installation & Setup
 
 Follow these steps to set up the automation project on your local machine:
+
+Open New Terminal in VS Code.
 
 1. **Clone the repository**
 
@@ -61,7 +63,13 @@ npm install
 npx playwright install
 ```
 
-4. **Open project folder in VS Code**
+_If the package is already in package.json, step 4 may be optional._ 4. **Install Playwright Test package**
+
+```bash
+npm install --save-dev @playwright/test
+```
+
+5. **Open project folder in VS Code**
 
 VS Code will automatically suggest:
 
@@ -72,14 +80,16 @@ Accept the recommendations or add them manually.
 
 ---
 
+6. **Restart VS Code to apply latest changes**
+
 ## ▶️ Running Tests
 
 After completing the installation and setup, you can run your Playwright tests with the following commands:
 
-1. **Run all tests**
+1. **Run a specific test**
 
 ```bash
-npx playwright test
+npx playwright test -g "{TestName}"
 ```
 
 2. **Run tests in a specific browser**
@@ -90,10 +100,10 @@ npx playwright test --project=firefox
 npx playwright test --project=webkit
 ```
 
-3. **Run a specific test**
+3. **Run all tests**
 
 ```bash
-npx playwright test -g "{TestName}"
+npx playwright test
 ```
 
 4. **View test report**
@@ -109,55 +119,67 @@ npx playwright show-report
 
 SKILLO-AUTOMATION-PROJECT
 │
-├── .vscode                           # VS Code configuration files
-│   ├── extensions.json               # Recommended extensions
-│   └── settings.json                 # Workspace ESLint/Prettier settings
+├── .vscode                                # VS Code configuration files
+│   ├── extensions.json                    # Recommended extensions
+│   └── settings.json                      # Workspace ESLint/Prettier settings
 │
-├── bugs                              # Documentations of known issues
-│  ├── new-post-bugs.md               # Found bugs for post creation
-│  └── registration-bugs.md           # Found bugs for registration
+├── bugs                                   # Documentations of known issues
+│  ├── new-post-bugs.md                    # Bugs related to post creation
+│  └── registration-bugs.md                # Bugs related to user registration
 │
-├── pages                             # Page Object Model classes
-│  ├── EditUserModal.js               # POM for edit user modal on Profile page
-│  ├── Header.js                      # POM for Header component
-│  ├── HomePage.js                    # POM for main Home page
-│  ├── LoginPage.js                   # POM for Login page
-│  ├── NewPostPage.js                 # POM for New post page
-│  ├── PostModal.js                   # POM for post modal on Profile page
-│  ├── ProfilePage.js                 # POM for Profile page
-│  ├── RegistrationPage.js            # POM for Registration page
-│  └── Toast.js                       # POM for notification (toast) messages
+├── pages                                  # Page Object Model classes
+│  ├── Header.js                           # POM for Header component
+│  ├── HomePage.js                         # POM for Home page
+│  ├── LoginPage.js                        # POM for Login page
+│  ├── NewPostPage.js                      # POM for New post page
+│  ├── PostModal.js                        # POM for Post Modal component on Profile page
+│  ├── ProfilePage.js                      # POM for Profile page
+│  ├── RegistrationPage.js                 # POM for Registration page
+│  └── Toast.js                            # POM for notification (toast) messages
 │
-├── test-cases                        # Manual test cases documentation
-│  ├── login-tests.md                 # Step by step test cases for login
-│  ├── logout-tests.md                # Step by step test cases for logout
-│  ├── new-post-tests.md              # Step by step test cases for post creation
-│  └── registration-tests.md          # Step by step test cases for user registration
+├── test-cases                             # Manual test cases documentation
+│  ├── login-tests.md                      # Step by step test cases for login
+│  ├── logout-tests.md                     # Step by step test cases for logout
+│  ├── new-post-tests.md                   # Step by step test cases for post creation
+│  └── registration-tests.md               # Step by step test cases for user registration
 │
-├── tests                             # Automated tests
-│ ├── fixtures                        # Shared test setup/data
-│ │   ├── test-data
-│ │   │   ├── data-generators.js      # Data generators used for test data creation
-│ │   │   ├── page-titles.js          # Page titles used for tests assertions
-│ │   │   ├── static-data.js          # Static data used for tests
-│ │   │   ├── toast-messages.js       # Toast messages used for tests assertions
-│ │   │   └── validation-messages.js  # Validation messages used for tests assertions
-│ │   └── combined-fixtures.js        # Custom Playwright fixtures (extended test)
-│ ├── login.spec.js                   # Login tests
-│ ├── logout.spec.js                  # Logout tests
-│ ├── newPost.spec.js                 # New post tests
-│ └── registration.spec.js            # Registration tests
+├── tests                                  # Automated tests
+│   └── fixtures                           # Shared test setup/data
+│   │   ├── constants                      # Static values and messages
+│   │   │   ├── constants-combined.js      # Combined constants used across fixtures
+│   │   │   ├── page-titles.js             # Page titles constants for assertions
+│   │   │   ├── toast-messages.js          # Toast messages constants for assertions
+│   │   │   └── validation-messages.js     # Validation messages constants for assertions
+│   │   │
+│   │   ├── helpers                        # Reusable helper functions used across fixtures
+│   │   │   ├── header-helpers.js          # Header UI validation helpers
+│   │   │   ├── login-helper.js            # Login helper
+│   │   │   └── new-post-helpers.js        # State/data helper for New post page
+│   │   │
+│   │   ├── page-objects                   # Page object
+│   │   │   └── page-objects-combined.js   # Instances of all POM classes used in tests
+│   │   │
+│   │   └── test-data                      # Test data used for tests
+│   │   │   ├── data-generators.js         # Generators for dynamic test data creation
+│   │   │   └── static-data.js             # Static data used for tests
+│   │   │   ├── test-data-combined.js      # Combined test data used across fixtures
+│   │   └── combined-fixtures.js           # Combined custom fixtures of page objects, helpers, constants and test data
+│   │
+│   ├── login.spec.js                      # Automated login tests
+│   ├── logout.spec.js                     # Automated logout tests
+│   ├── newPost.spec.js                    # Automated new post tests
+│   └── registration.spec.js               # Automated registration tests
 │
-├── upload-files                      # Sample files for post creation
-│   ├── cheetah.webp                  # Forbidden file format
-│   ├── fox.jpg                       # Allowed file format
-│   └── waterfall.jpg                 # Allowed file format
+├── upload-files                           # Sample files for post creation
+│   ├── cheetah.webp                       # Forbidden file format
+│   ├── fox.jpg                            # Allowed file format
+│   └── waterfall.jpg                      # Allowed file format
 │
-├── .gitignore                        # Git ignore files
-├── eslint.config.mjs                 # ESLint configuration
-├── package.json                      # NPM dependencies
-├── playwright.config.js              # Playwright test configuration
-└── README.md                         # Project documentation
+├── .gitignore                             # Git ignore files
+├── eslint.config.mjs                      # ESLint configuration
+├── package.json                           # Project dependencies
+├── playwright.config.js                   # Playwright test runner configuration
+└── README.md                              # Project documentation
 
 ```
 
