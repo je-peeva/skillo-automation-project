@@ -57,16 +57,16 @@ cd skillo-automation-project
 npm install
 ```
 
-3. **Install Playwright browsers**
-
-```bash
-npx playwright install
-```
-
-_If the package is already in package.json, step 4 may be optional._ 4. **Install Playwright Test package**
+3. **Install Playwright Test package**
 
 ```bash
 npm install --save-dev @playwright/test
+```
+
+4. **Install Playwright browsers**
+
+```bash
+npx playwright install
 ```
 
 5. **Open project folder in VS Code**
