@@ -1,7 +1,7 @@
 {
   "name": "skillo-automation-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Automation testing project for the Skillo web application ensuring the correct functionality of its core features.",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/je-peeva/skillo-automation-project.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Zhenya Peeva",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/je-peeva/skillo-automation-project/issues"
