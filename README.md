@@ -78,9 +78,9 @@ VS Code will automatically suggest:
 
 Accept the recommendations or add them manually.
 
----
-
 6. **Restart VS Code to apply latest changes**
+
+---
 
 ## ▶️ Running Tests
 
